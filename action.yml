@@ -23,13 +23,13 @@ runs:
       shell: bash
     - run: git checkout black-pr-bot-v1
       shell: bash
-    - run: git switch -C main origin/black-pr-bot-v1
+    - run: git reset --hard ${{ inputs.head_branch }}
       shell: bash
     - run: python3 -m black .
       shell: bash
-    - run: git add . && git commit -m "black-auto-format-bot"
+    - run: git add . && git commit -m "black-auto-format-bot changes"
       shell: bash
-    - run: git push -u origin black-pr-bot-v1
+    - run: git push --force -u origin black-pr-bot-v1
       shell: bash
     - run: gh pr create --title "[run-black-pr-action bot] Black Formatting" --body "These are changes created by running black on you repository" --head black-pr-bot-v1
       shell: bash
