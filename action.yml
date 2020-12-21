@@ -1,0 +1,24 @@
+name: "run-black-pr-action"
+description: "run black inside a github workflow and create PR"
+
+runs:
+    using: composite
+    steps:
+    - run: pip3 install black
+      shell: bash
+    - run: |
+        git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+        git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+      shell: bash
+    - run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+      shell: bash
+    - run: git checkout -b black-pr-$NOW
+      shell: bash
+    - run: black .
+      shell: bash
+    - run: git add . && git commit -m "black-auto-format-bot"
+      shell: bash
+    - run: git push -u origin $NOW
+      shell: bash
+    - run: gh pr create --title "Black Formatting" --body "These are changes created by running black on you repository" --head $NOW
+      shell: bash
