@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: run my action
-        uses: raiyanyahya/run-black-pr-action@v1
+        uses: raiyanyahya/run-black-pr-action@v1.0.1
