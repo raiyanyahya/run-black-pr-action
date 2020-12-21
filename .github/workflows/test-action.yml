@@ -1,0 +1,17 @@
+name: test-action
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  run-my-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: run my action
+        uses: raiyanyahya/run-black-pr-action@v1
