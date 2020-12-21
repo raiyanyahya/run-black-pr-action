@@ -21,9 +21,9 @@ runs:
       shell: bash
     - run: git branch black-pr-bot-v1
       shell: bash
-    - run: git checkout black-pr-bot-v1 && git pull origin ${{ inputs.head_branch }}
+    - run: git checkout black-pr-bot-v1
       shell: bash
-    - run: git reset --hard origin/${{ inputs.head_branch }}
+    - run: git reset --hard black-pr-bot-v1 ${{ inputs.head_branch }}
       shell: bash
     - run: python3 -m black .
       shell: bash
