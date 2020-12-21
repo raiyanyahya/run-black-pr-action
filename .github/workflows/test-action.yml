@@ -16,6 +16,6 @@ jobs:
       - name: run black and create a pr
         uses: raiyanyahya/run-black-pr-action@v1
         with:
-          name: main
+          head_branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
