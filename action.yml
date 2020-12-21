@@ -15,15 +15,15 @@ runs:
     #- run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
     - run: echo "NOW=$(date)" >> $GITHUB_ENV
       shell: bash
-    - run: git branch black-pr-${{ env.NOW }}
+    - run: git branch black-pr-test
       shell: bash
-    - run: git checkout black-pr-${{ env.NOW }}
+    - run: git checkout black-pr-test
       shell: bash
     - run: black .
       shell: bash
     - run: git add . && git commit -m "black-auto-format-bot"
       shell: bash
-    - run: git push -u origin black-pr-${{ env.NOW }}
+    - run: git push -u origin black-pr-test
       shell: bash
-    - run: gh pr create --title "Black Formatting" --body "These are changes created by running black on you repository" --head black-pr-${{ env.NOW }}
+    - run: gh pr create --title "Black Formatting" --body "These are changes created by running black on you repository" --head black-pr-test
       shell: bash
