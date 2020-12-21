@@ -5,7 +5,8 @@ on:
     branches:
       - master
   workflow_dispatch:
-
+env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   run-my-action:
