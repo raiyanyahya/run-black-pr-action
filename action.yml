@@ -23,7 +23,7 @@ runs:
       shell: bash
     - run: git checkout black-pr-bot-v1
       shell: bash
-    - run: git reset --hard black-pr-bot-v1 ${{ inputs.head_branch }}
+    - run: git switch -C main origin/black-pr-bot-v1
       shell: bash
     - run: python3 -m black .
       shell: bash
