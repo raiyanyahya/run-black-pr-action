@@ -19,7 +19,7 @@ runs:
       shell: bash
     - run: git checkout black-pr-test
       shell: bash
-    - run: black .
+    - run: python3 -m black .
       shell: bash
     - run: git add . && git commit -m "black-auto-format-bot"
       shell: bash
