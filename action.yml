@@ -4,7 +4,7 @@ description: "run black inside a github workflow and create PR"
 runs:
     using: composite
     steps:
-    - run: pip3 install black, setuptools
+    - run: pip3 install black setuptools
       shell: bash
     - run: |
         git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
