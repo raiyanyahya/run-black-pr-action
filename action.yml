@@ -12,7 +12,8 @@ runs:
         git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
       shell: bash
-    - run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+    #- run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+    - run: echo "NOW=$(date)" >> $GITHUB_ENV
       shell: bash
     - run: git checkout -b black-pr-${{ env.NOW }}
       shell: bash
